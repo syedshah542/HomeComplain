@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeComplain.View.MainComplaintPage"
+             Title="COMPLAINT  MAINTANCE">
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="6">
+
+            <StackLayout Orientation="Horizontal" >
+                <Label x:Name="CurrentLoginUser" Text="{Binding userCurrentLogin}"
+                              HorizontalTextAlignment="Start"
+                              HorizontalOptions="StartAndExpand"
+                              WidthRequest="40"
+                              TextColor="Blue"/>
+
+                <Label Text="Logout" x:Name="logoutText" TextColor="Blue" FontSize="18" HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="UserLogoutCommand" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <BoxView HeightRequest="2" BackgroundColor="Green" />
+
+            <Image  Source="HomeComplain/Images/cmplogo.png" 
+                       BackgroundColor="Transparent" 
+                        HorizontalOptions="Center"
+                       WidthRequest="70" 
+                       HeightRequest="70" />
+
+            <Image  Source="PNotes/Images/cmpab.jpg" 
+                    WidthRequest="180" 
+                       HeightRequest="120"/>
+
+            <Label Text="Complaint List and Status " 
+                       FontSize="20"
+                       FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand" />
+
+            <BoxView x:Name="boxLine" HeightRequest="2" BackgroundColor="Green" />
+
+            
+            <StackLayout Orientation="Horizontal" BackgroundColor="#3c647a">
+                <Label Text="  Person      " XAlign="Center" YAlign="Center" TextColor="White" FontAttributes="Bold" />
+                
+                <Label Text="    Title      " XAlign="Center" YAlign="Center" TextColor="White" FontAttributes="Bold" />
+                
+                <Label Text="     Date " XAlign="Center" YAlign="Center" TextColor="White" FontAttributes="Bold"/>
+                <BoxView WidthRequest="60" />
+
+                <Label Text=" Type " XAlign="Center" YAlign="Center" TextColor="White" FontAttributes="Bold"/>
+                <BoxView WidthRequest="40" />
+                <Label Text=" Status " XAlign="Center" YAlign="Center" TextColor="White" FontAttributes="Bold"/>
+            </StackLayout>
+
+
+
+            <ScrollView >
+                <ListView x:Name="complaintDataList" ItemsSource="{Binding ComplaintModelPairs}" HasUnevenRows="True"  VerticalOptions="FillAndExpand" BackgroundColor="#0b4b73" Margin="2">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal">
+                                        <BoxView WidthRequest="5" />
+                                        <Label Text="{Binding Complaintner}" TextColor="White" HeightRequest="15"/>
+                                        <BoxView WidthRequest="30" />
+                                        <Label Text="{Binding ComplaintTitle}" TextColor="White" HeightRequest="15"/>
+                                        <BoxView WidthRequest="30" />
+                                        <Label Text="{Binding ComplaintDate,StringFormat='{0:MMMM dd, yyyy}' }" TextColor="White" HeightRequest="15" />
+                                        <BoxView WidthRequest="20" />
+                                        <Label Text="{Binding ComplatintType}" TextColor="White" HeightRequest="15"/>
+                                        <BoxView WidthRequest="20" />
+                                        <Label Text="{Binding ComplaintStatus}" TextColor="White" HeightRequest="15"/>
+                                        
+
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal" >
+
+                <Button Text="Login" BackgroundColor="#01304d" TextColor="White" HorizontalOptions="FillAndExpand" Clicked="ONLoginBtnClicked" />
+                <BoxView WidthRequest="3" />
+                <Button Text="Complaint" BackgroundColor="#01304d" TextColor="White" HorizontalOptions="FillAndExpand" Clicked="ONSearchBtnClicked" />
+
+            </StackLayout>
+
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

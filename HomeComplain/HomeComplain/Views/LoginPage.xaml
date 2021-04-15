@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeComplain.View.LoginPage"
+             Title="Account Login">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="2"  >
+
+
+            <Image Source="HomeComplain/Images/cmplogo.png"                      
+                       HeightRequest="70"
+                       WidthRequest="70" />
+
+            <Image Source="PNotes/Images/cmpab.jpg" 
+                       HeightRequest="150"
+                   WidthRequest="120" />
+
+
+            <Label Text="Login to Your Account" 
+                       FontSize="30"
+                       FontFamily="Bradley Hand, cursive"
+                       FontAttributes="Bold" 
+                       HorizontalOptions="CenterAndExpand"/>
+
+            <BoxView HeightRequest="2" BackgroundColor="Green" />
+
+            <Frame HasShadow="False"  BackgroundColor="#015180" HorizontalOptions="FillAndExpand" Padding="5">
+                <StackLayout Orientation="Vertical" Spacing="5">
+
+                    <Entry x:Name="loginFullName" Text="{Binding Email}" Placeholder="USER EMAIL"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="White"/>
+
+                    <Entry x:Name="loginPassword" Text="{Binding Password}" Placeholder="USER PASSWORD"   
+                                PlaceholderColor="White"
+                                TextColor="White"
+                                HeightRequest="40"
+                                IsPassword="True"  />
+
+                </StackLayout>
+            </Frame>
+
+            <Button Clicked="onlogin" 
+                        Text="Login" 
+                        TextColor="White"  
+                        FontAttributes="Bold" 
+                        FontSize="Large" 
+                        HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#01304d" />
+
+
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="To Create New Account " />
+                <Label Text="Click Here" TextColor="Green" FontSize="18">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="RegisterUserCommand" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeComplain.View.CreateUserPage"
+             Title="Create New User">
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"  Padding="10" Spacing="1" >
+            <BoxView HeightRequest="5"/>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Label Text="Fill User Details"
+                     FontSize="20"
+                      HorizontalTextAlignment="Center"
+                       WidthRequest="180"
+                      TextColor="Black"
+                       HorizontalOptions="Start"/>
+
+                <Image Source="HomeComplain/Images/cmplogo.png" 
+                       BackgroundColor="Transparent" 
+                       WidthRequest="90" 
+                       HeightRequest="90" 
+                       HorizontalOptions="EndAndExpand" 
+                       VerticalOptions="EndAndExpand"/>
+
+            </StackLayout>
+
+            <BoxView HeightRequest="2" BackgroundColor="Green" />
+            <BoxView HeightRequest="5"/>
+
+            <Frame BackgroundColor="#015180" HasShadow="False" >
+                <StackLayout Orientation="Vertical" Spacing="10" >
+
+                    <Entry x:Name="entryName" Text="{Binding Name}" Placeholder="FULL NAME"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                          HorizontalTextAlignment="Center"
+                           TextColor="White"
+                           WidthRequest="120"/>
+
+                    <Entry x:Name="entryEmail" Text="{Binding Email}" Placeholder="EMAIL ID"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="120"/>
+
+                    <Entry x:Name="entryPassword" Text="{Binding Password}" Placeholder="PASSWORD"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="120"/>
+
+                    <Entry x:Name="entryContact" Text="{Binding Contact}" Placeholder="CONTACT"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                            Keyboard="Numeric"
+                           IsPassword="False"  
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="120"/>
+
+                </StackLayout>
+            </Frame>
+            <Button Clicked="OnButtonClicked"  Text="Create Account" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#01304d" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

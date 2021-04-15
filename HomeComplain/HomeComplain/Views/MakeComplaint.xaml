@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeComplain.View.MakeComplaint"
+             Title="NEW COMPLAINT">
+    
+    
+    <ContentPage.Content>
+        <StackLayout Padding="8" Orientation="Vertical"  >
+
+            <Image Source="HomeComplain/Images/cmplogo.png" 
+                       BackgroundColor="Transparent" 
+                       WidthRequest="90" 
+                       HeightRequest="90" />
+
+            <Label Text="Enter Complaint Details"
+                     FontSize="20"
+                      HorizontalTextAlignment="Center"
+                       WidthRequest="180"
+                      TextColor="Black"/>
+
+            <BoxView HeightRequest="2" BackgroundColor="Green" />
+
+            <Frame BackgroundColor="#3c6478" HasShadow="False" >
+
+                <StackLayout Orientation="Vertical" Spacing="5" >
+
+                    <Entry x:Name="cmpTitle" 
+                           Text="{Binding Title}" 
+                           Placeholder="COMPLAINT TITLE"   
+                           PlaceholderColor="White" 
+                           HeightRequest="40"   
+                          HorizontalTextAlignment="Center"
+                           TextColor="White"
+                           WidthRequest="120"/>
+
+                    <Picker x:Name="cmpType" Title="SELECT COMPLAINT TYPE " HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" WidthRequest="120" TextColor="White" TitleColor="White">
+                        <Picker.Items>
+                            <x:String>Service</x:String>
+                            <x:String>Maintance</x:String>
+                            <x:String>Waste</x:String>
+                            <x:String>Cleanness</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Entry x:Name="cmpDiscription" 
+                           Text="{Binding TeamTwo}" 
+                           Placeholder="COMPLAINT DISCRIPTION"   
+                           PlaceholderColor="White" 
+                           HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="120"/>
+
+
+
+                    <Entry x:Name="cmpSolution" 
+                           Text="{Binding TeamTwo}" 
+                           Placeholder="PROPOSED SOLUTION"   
+                           PlaceholderColor="White" 
+                           HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="120"/>
+
+                    <DatePicker x:Name="cmpDate" 
+                                VerticalOptions="CenterAndExpand" 
+                                Date="{Binding ComplaintDate}" 
+                                Format="d" 
+                                HorizontalOptions="FillAndExpand" 
+                                WidthRequest="120"
+                                TextColor="White"/>
+
+                </StackLayout>
+            </Frame>
+
+            <Button Clicked="OnCreateComplaintClicked"  Text="CREATE COMPLAINT" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#107896" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
